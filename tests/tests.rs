@@ -5,13 +5,13 @@ use raw_pointer::Pointer;
 #[test]
 fn test_pointer_safe() {
     let mut num: u32 = 5;
-    let _ = Pointer::<u32>::new(&mut num as *mut u32);
+    let _ = Pointer::<u32>::new(&mut num);
 }
 
 #[test]
 fn test_correct_value() {
     let mut num: u32 = 5;
-    let ptr_num = Pointer::<u32>::new(&mut num as *mut u32);
+    let ptr_num = Pointer::<u32>::new(&mut num);
 
     assert_eq!(ptr_num.unwrap(), &num);
 
@@ -23,7 +23,7 @@ fn test_correct_value() {
 #[test]
 fn test_changes_value() {
     let mut num: u32 = 5;
-    let ptr_num = Pointer::<u32>::new(&mut num as *mut u32);
+    let ptr_num = Pointer::<u32>::new(&mut num);
 
     assert_eq!(ptr_num.unwrap(), &5u32);
 
@@ -35,7 +35,7 @@ fn test_changes_value() {
 #[test]
 fn test_mutable_value() {
     let mut num: u32 = 5;
-    let ptr_num = Pointer::<u32>::new(&mut num as *mut u32);
+    let ptr_num = Pointer::<u32>::new(&mut num);
 
     *ptr_num.unwrap_mut() = 2u32;
     assert_eq!(num, 2);
@@ -44,7 +44,7 @@ fn test_mutable_value() {
 #[test]
 fn test_dereference() {
     let mut num: u32 = 5;
-    let mut ptr_num = Pointer::<u32>::new(&mut num as *mut u32);
+    let mut ptr_num = Pointer::<u32>::new(&mut num);
 
     assert_eq!(*ptr_num, 5u32);
     *ptr_num = 2;
