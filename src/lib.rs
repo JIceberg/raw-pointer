@@ -11,8 +11,8 @@ pub struct Pointer<T> {
 }
 
 impl<T> Pointer<T> {
-    pub fn new(ptr: *mut T) -> Self {
-        Self { ptr }
+    pub fn new(mut data: T) -> Self {
+        Self { ptr: &mut data as *mut T }
     }
 
     pub fn unwrap(&self) -> &T {
