@@ -1,10 +1,10 @@
 #![no_std]
 
 /**
- * This produces a pointer type for mutable pointers
+ * This produces a pointer type wrapper for mutable pointers
  */
 
-use core::ops::Deref;
+use core::ops::{Deref, DerefMut};
 
 pub struct Pointer<T> {
     pub ptr: *mut T,
@@ -35,5 +35,11 @@ impl<T> Deref for Pointer<T> {
 
     fn deref(&self) -> &Self::Target {
         unsafe { & *self.ptr }
+    }
+}
+
+impl<T> DerefMut for Pointer<T> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        unsafe { &mut *self.ptr }
     }
 }
