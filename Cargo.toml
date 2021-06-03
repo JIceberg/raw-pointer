@@ -1,6 +1,6 @@
 [package]
 name = "raw_pointer"
-version = "0.1.2"
+version = "0.1.3"
 description = "Safely handling raw mutable pointers to a generic type"
 authors = ["Jackson Isenberg"]
 license = "MIT"
