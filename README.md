@@ -14,9 +14,7 @@ let mut ptr_val = Pointer::<u32>::new(&mut val);
 
 ### Pointer to Specific Address
 ```rust
-let temp_register: Pointer<MyRegister> = Pointer::<MyRegister> {
-  ptr: 0xFFFF0000 as *mut MyRegister,
-};
+let mut temp_tegister: Pointer<MyRegister> = Pointer::<MyRegister>::from(0xFFFF0000);
 
 test_and_set(temp_register.value);
 ```

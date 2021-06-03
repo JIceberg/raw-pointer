@@ -50,3 +50,9 @@ fn test_dereference() {
     *ptr_num = 2;
     assert_eq!(num, 2);
 }
+
+#[test]
+fn test_to_pointer() {
+    let _ = Pointer::<u32>::from(0xFFFFu64);
+    assert_eq!(2, 2);
+}
