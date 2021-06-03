@@ -33,7 +33,7 @@ impl<T> Pointer<T> {
 
 impl<T> From<usize> for Pointer<T> {
     fn from(item: usize) -> Self {
-        Self { item as *mut T }
+        Self { ptr: item as *mut T }
     }
 }
 
