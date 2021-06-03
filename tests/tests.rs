@@ -53,6 +53,6 @@ fn test_dereference() {
 
 #[test]
 fn test_to_pointer() {
-    let _ = Pointer::<u32>::from(0xFFFFu64);
+    let _ = Pointer::<u32>::from(0xFFFF);
     assert_eq!(2, 2);
 }

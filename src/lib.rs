@@ -31,27 +31,9 @@ impl<T> Pointer<T> {
     }
 }
 
-impl<T> From<u64> for Pointer<T> {
-    fn from(item: u64) -> Self {
-        Self { ptr: item as *mut T }
-    }
-}
-
-impl<T> From<u32> for Pointer<T> {
-    fn from(item: u32) -> Self {
-        Self { ptr: item as *mut T }
-    }
-}
-
-impl<T> From<u16> for Pointer<T> {
-    fn from(item: u16) -> Self {
-        Self { ptr: item as *mut T }
-    }
-}
-
-impl<T> From<u8> for Pointer<T> {
-    fn from(item: u8) -> Self {
-        Self { ptr: item as *mut T }
+impl<T> From<usize> for Pointer<T> {
+    fn from(item: usize) -> Self {
+        Self { item as *mut T }
     }
 }
 
