@@ -29,7 +29,19 @@ impl<T> Pointer<T> {
 
         val
     }
+
+    pub fn as_ptr(&self) -> *mut T {
+        self.ptr
+    }
 }
+
+impl<T> Clone for Pointer<T> {
+    fn clone(&self) -> Pointer<T> {
+        Pointer::new(self.unwrap_mut())
+    }
+}
+
+impl<T> Copy for Pointer<T> {}
 
 impl<T> From<usize> for Pointer<T> {
     fn from(item: usize) -> Self {
